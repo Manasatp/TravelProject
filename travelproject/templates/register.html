@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <style>
+
+        body{
+        background-image:url("{% static 'images/img.png' %}");
+
+        }
+        form{
+        background-color:#58D68D;
+        margin-left:400px;
+        margin-right:400px;
+        padding:50px;
+        }
+        h1{
+        text-align:center;
+        color:#D5F5E3;
+        font-family:ariel;
+        }
+        h4{
+        text-align:center;
+        color:red;
+        }
+
+
+    </style>
+</head>
+<body>
+<form method="post" action="regi">
+    {% csrf_token %}
+    <h1>Registration Form</h1>
+    <label>Username </label><br>
+    <input type="text" name="username" placeholder="enter your name here" required="required"><br><br>
+    <label>First name </label><br>
+    <input type="text" name="first_name" placeholder="enter your first name" required="required"><br><br>
+    <label>Last name </label><br>
+    <input type="text" name="last_name" placeholder="enter your last name" required="required"><br><br>
+    <label>Email id  </label><br>
+    <input type="email" name="email" placeholder="enter your email "><br><br>
+    <label>Password  </label><br>
+    <input type="password" name="password1" placeholder="enter your password" required="required"><br><br>
+    <label>confirm password</label><br>
+    <input type="password" name="password2" placeholder="confirm your password" required="required"><br><br>
+    <input type="submit">
+</form>
+{% for msg in messages %}
+<h4>****{{msg}}****</h4>
+{% endfor %}
+</body>
+</html>
